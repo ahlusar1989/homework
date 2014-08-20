@@ -28,7 +28,7 @@ put "Even though you are located in #{location} I certainly hope you forgive me 
 #conditionals
 
 3.downto(1) do |n|
-	if number.include?(-Inf..0 && 10..Inf)
+	if number.include?(-Inf..0 && 0..Inf)
 		puts "Please make sure that your number is within the set range!"
 	elsif guess > number
 		puts "Not quite.....you have #{plural('guess', 'guesses', 'num_guesses')} attempts left!"
