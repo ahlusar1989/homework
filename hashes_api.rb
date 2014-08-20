@@ -69,8 +69,13 @@ end
 
 
 def get_from_reddit
-  response = JSON.load(RestClient.get('http://json'))
-
+  
+  response = JSON.load(RestClient.get('http://json')) # Hey Seran, so here is where you're running into your issue.. if you look at the examples above
+  # this is where you put in the URL for your GET request.  For some unknown reason you're making a request
+  # to 'http://json' ????? Here is the url you should be making a get request to http://www.reddit.com/.json
+  # After that it's up to you to figure out how to parse out the data. Good Luck!
+  
+  
   response["data"]["feed"].map do |entry|
     title = entry["content"]["title"] # check the story title for hierarchy---> these are hashes as strings that need to be language agnostic 
     category = entry["content"]["tags"].map { |tag| tag["display"] }.join(', ')
